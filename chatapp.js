@@ -17,11 +17,11 @@ function handler(request, response) {
 }
 
 io.sockets.on('connection', function (socket) {
-    //when receiving the data from the server, push the same message to client.
+   
     socket.on("clientMsg", function (data) {
-        //send the data to the current client requested/sent.
+      
         socket.emit("serverMsg", data);
-        //send the data to all the clients who are accessing the same site(localhost)
+       
         socket.broadcast.emit("serverMsg", data);
     });
 
