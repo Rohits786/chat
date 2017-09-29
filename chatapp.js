@@ -4,15 +4,15 @@ var app = require("http").createServer(handler),
 
 app.listen(1234);
 
-function handler(req, res) {
+function handler(request, response) {
     fs.readFile(__dirname + '/chatappweb.html',
         function (err, data) {
             if (err) {
-                res.writeHead(500);
-                return res.end('Error loading chatappweb.html');
+                response.writeHead(500);
+                return response.end('Error loading chatappweb file');
             }
-            res.writeHead(200);
-            res.end(data);
+            response.writeHead(200);
+            response.end(data);
         });
 }
 
